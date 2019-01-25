@@ -1,0 +1,4 @@
+What is the mapping location of the variant rs4224828 in the mouse?
+
+go to ensembl.org, paste the rsID in the search bar and specify mouse
+then look at the location: Chromosome 4:136443949
