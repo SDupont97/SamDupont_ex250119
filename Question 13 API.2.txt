@@ -1,0 +1,12 @@
+Give the first 100 bases of the genomic FASTA sequence of the MYCN gene in the zebrafish.
+
+go to the ncbi gene
+look up MYCN AND zebrafish
+click on the genbank record for this gene
+click on refseq and go the the gene record page (NM_212614) you can find the full sequence at the bottom and if you take the first 100 
+we already have the solution, however there is a more efficient way
+
+go back to the genbank record and look at the part 'genomic context' there we find the chromosome and location: 20:33294442-33299644
+so if we convert this into a curl query and just add 100 to the start of the sequence, we will just get the first 100 bases
+
+curl 'http://rest.ensembl.org/sequence/region/zebrafish/20:33294442-33294542:1' -H 'Content-type:text/plain'
