@@ -1,0 +1,1 @@
+select gene_name, seq_region_end-seq_region_start as length from gene order by length asc limit 1;
