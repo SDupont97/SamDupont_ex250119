@@ -1,0 +1,14 @@
+Give the name of the chromosome with the second most genes that tell something about cancer. 
+
+
+	Select chromosome, count(gene_id) from gene where description like “%cancer%” 
+		group by chromosome
+		order by count(gene_id) desc limit 1 offset 1;
+
+What is the number of exons of this chromosome (9)?
+
+Select chromosome, count(*) as total_exons from gene 
+	join transcript on gene.gene_ID = transcript.gene_id
+	join exon_transcript et on transcript.transcript_id = et.transcript_id 
+	join exon e on et.exon_id = e.exon_id
+	where chromosome = 9 group by chromosome order by total_exons desc limit 1;
