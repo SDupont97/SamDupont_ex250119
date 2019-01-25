@@ -1,0 +1,7 @@
+What is the name of the gene with the most transcripts? 
+What is the number of transcripts of this gene?
+
+
+Select gene_name, count(transcript_id) from gene join transcript on gene.gene_ID = transcript.gene_ID
+	group by gene_name 
+	order by count(transcript_id) desc limit 1;
