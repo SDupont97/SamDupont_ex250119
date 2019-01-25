@@ -1,0 +1,22 @@
+Question 2
+UNF: phd(PerNO, Name, Dateofbirth, Lab_code, Lab_name, Res_code, Res_desc, Res_Sup)
+
+make sure there are no repeating groups for 1NF (split of research code, descri en sup)
+
+1NF:
+phd(PerNO, Name, Dateofbirth, Lab_code, Lab_name, res_code)
+research( res_code, res_desc, res_sup)
+
+making every non key attribute dependent on the whole key
+2NF:
+
+phd(PerNo, name, Dateofbirth, Lab_code, res_code)
+lab(lab_code, Lab_name)
+research( res_code, res_desc, res_sup)
+
+making every non key attribute not transitivly dependent on the whole key
+3NF:
+project(perno, lab_code, res_code)
+phd(PerNo, name, Dateofbirth)
+lab(lab_code, Lab_name)
+research( res_code, res_desc, res_sup)
