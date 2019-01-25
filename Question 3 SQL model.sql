@@ -50,12 +50,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`syndrome` (
   `idsyndrome` INT UNSIGNED NOT NULL,
   `description syndrome` VARCHAR(255) NULL,
   `affected gene` VARCHAR(45) NOT NULL,
-  `Patients_idPatients` INT UNSIGNED NOT NULL,
-  PRIMARY KEY (`idsyndrome`, `Patients_idPatients`),
+  `Patients_idPatients1` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`idsyndrome`),
   UNIQUE INDEX `idsyndrome_UNIQUE` (`idsyndrome` ASC) VISIBLE,
-  INDEX `fk_syndrome_Patients_idx` (`Patients_idPatients` ASC) VISIBLE,
-  CONSTRAINT `fk_syndrome_Patients`
-    FOREIGN KEY (`Patients_idPatients`)
+  INDEX `fk_syndrome_Patients1_idx` (`Patients_idPatients1` ASC) VISIBLE,
+  CONSTRAINT `fk_syndrome_Patients1`
+    FOREIGN KEY (`Patients_idPatients1`)
     REFERENCES `mydb`.`Patients` (`idPatients`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Genes_has_syndrome` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Genes_has_syndrome_syndrome1`
-    FOREIGN KEY (`syndrome_idsyndrome` , `syndrome_Patients_idPatients`)
-    REFERENCES `mydb`.`syndrome` (`idsyndrome` , `Patients_idPatients`)
+    FOREIGN KEY (`syndrome_idsyndrome`)
+    REFERENCES `mydb`.`syndrome` (`idsyndrome`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
