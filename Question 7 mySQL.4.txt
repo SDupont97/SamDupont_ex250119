@@ -1,0 +1,9 @@
+Give the number of rows from the exon table and do the same for the exon_transcript table. 
+Explain why there is a difference in number of rows.
+
+select count(*) from exon; = 642590
+
+select count(*) from exon_transcript; = 1178393
+
+there is a redundacy in the exon_transcript table, because oen exon can result in multiple transcripts
+so the exons are repeated in the in the exon_transcript table.
