@@ -1,0 +1,5 @@
+Specify the lower and upper limits of the percentage of side effects of medicines within companies that produce more than 1 drug.
+
+db.getCollection('bioinf_mongo_examen').aggregate([{$group:{_id:"$company", count:{$sum:1}, upper_lim:{$max:"$percentage_of_side_effects"},
+	lower_lim:{$min:"$percentage_of_side_effects"}}},  
+        {$match:{count:{$gt:1}}}])
