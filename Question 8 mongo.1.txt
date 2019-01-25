@@ -1,0 +1,4 @@
+Give the number of medicines taken with a lozenge (TABLET;BUCCAL, SUBLINGUAL). 
+Make sure that your query only shows the name of the drug.
+
+db.getCollection('bioinf_mongo_examen').aggregate({$match:{method_of_admission:"TABLET;BUCCAL, SUBLINGUAL"}},{$group:{_id:"$drug"}})
