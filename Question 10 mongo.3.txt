@@ -1,0 +1,6 @@
+Give the names of the companies that produce medicines that on average cause side effects in more than 10% of cases? 
+Sort your results according to decreasing percentage of side effects.
+
+db.getCollection('bioinf_mongo_examen').aggregate([{$group:{_id:"$company",avg:{$avg:"$percentage_of_side_effects"}}},
+	{$match:{avg:{$gt:10}}},
+	{$sort:{avg:-1}}])
